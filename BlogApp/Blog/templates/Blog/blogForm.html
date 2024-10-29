@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create a Blog{% endblock  %}
+
+{% block content %}
+<div class='container mt-5'>
+    <h1>Create a New Blog Post</h1>
+
+    <form enctype="multipart/form-data" class="mt-4" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class='mb-3'>
+            <label for="id_title" class="form-label"></label>
+            {% comment %} {{ form.title}} {% endcomment %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_content" class="form-label"></label>
+            {% comment %} {{ form.blog_area}} {% endcomment %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="id_image" class="form-label"></label>
+            
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Publish Blog</button>
+    </form>
+</div>
+{% endblock  %}
